@@ -1,6 +1,12 @@
 
 class Madlibs: 
-    """ """
+    """ 
+    Madlibs class
+    
+    attributes:: 
+    self.noun(str) = noun words
+    self.verb(str) = verb words
+    """
     def __init__(self,nouns,verbs):
         """ Intializes attributes
         Args:
