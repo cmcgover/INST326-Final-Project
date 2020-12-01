@@ -2,12 +2,13 @@
 # https://www.madlibs.com/wp-content/uploads/2016/04/VacationFun_ML_2009_pg15.pdf
 # https://irp-cdn.multiscreensite.com/ec2b0ab8/files/uploaded/Mad%20Libs.pdf
                                             
+import re
 
 class Template:
     '''Generates the template
     
     '''
-    def genre(self, genre):
+    def genre(self, vacation, park, zoo, arcade):
     
         """ Choose the genre of the story to be generated
        
@@ -17,20 +18,22 @@ class Template:
         Generates a story of the genre choosen
         
         """
-        genre = input("What type of story would you like? comedy/horror/romance/celebrity ")
+        genre = input("Choose a genre: vacation/park/zoo/arcade ")
+        #create a method that reads the madlibstemplate.txt and grabs the story that matches the inputed genre
         
-    def format(self): #Casey
-        """ Creating the format of the Mad Libs template regarding word count, # of type of words, etc.
+    def format(self, template): #Casey
+        """ Determines which types of words will be needed to fill in the blank of the specific story.
         
-        Args:
-        num_nouns(int): Total # of nouns in story
-        num_verbs(int): Total # of verbs in story
-        num_adverbs(int): Total # of adverbs in story
-        num_adjectives(int): Total # of adjectives in story
-        
-        Side effects:
-        # of words for each word type in a dictionary
+        Args: 
+            template(str): path to a txt file, in this case we are using the madlibstemplate.txt
+
+        Returns:
+            The values of the txt file that are in []
+            
         """
+        with open(filename, "r", encoding="utf-8") as f:
+            for line in f:
+        #takes story that was choosen in the genre and returns a tuple of every phrase in [] in the story
         
     def generator(self, story):
         """Compiles story into a Mad Libs template text file
