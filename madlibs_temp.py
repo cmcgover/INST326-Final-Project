@@ -21,7 +21,7 @@ class Template:
         genre = input("Choose a genre: vacation/park/zoo/arcade ")
         #create a method that reads the madlibstemplate.txt and grabs the story that matches the inputed genre
         
-    def format(self, template): #Casey
+    def format(self, template):
         """ Determines which types of words will be needed to fill in the blank of the specific story.
         
         Args: 
@@ -34,8 +34,11 @@ class Template:
         with open(filename, "r", encoding="utf-8") as f:
             for line in f:
         #takes story that was choosen in the genre and returns a tuple of every phrase in [] in the story
+        #using regex use finditer, sub
+        #method takes out square brackets
         
     def generator(self, story):
+        #prompts user for words in square brackets
         """Compiles story into a Mad Libs template text file
         Arg:
         story(dict): total words in mad libs template
