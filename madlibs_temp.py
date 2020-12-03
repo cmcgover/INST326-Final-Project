@@ -9,7 +9,7 @@ class Template:
     '''Generates the template
     
     '''
-    def genre(self, genre): #Amanu
+    def genre(self, filename): #Amanu
     
         """ Choose the genre of the story to be generated
        
@@ -20,8 +20,17 @@ class Template:
         
         """
         genre = input("Choose a genre: vacation/park/zoo/arcade ")
-        open_file = open("madlibstemplate.txt", "r")
+        open_file = open(filename, "r")
         content = open_file.read()
+        d = {}
+        for i in content: 
+            x = i.split(":")
+            genre = x[0]
+            story = x[1]
+            d[genre] = story 
+            
+        print(d)
+        
         
         
     def read(): #Chelsea
