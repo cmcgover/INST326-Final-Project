@@ -38,7 +38,7 @@ class Template:
             
         #create a method that reads the madlibstemplate.txt and grabs the story that matches the inputed genre
     
-    def generator(self, story): 
+    def generator(self, story): #Alhaji
         #prompts user for words in square brackets
         #uses output to ask user to fill in words
         """Compiles story into a Mad Libs template text file
@@ -47,6 +47,7 @@ class Template:
         Side effects:
         file(str): text file 
         """
+        
     
     def format(filename):
         """ Determines which types of words will be needed to fill in the content.
