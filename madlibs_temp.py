@@ -24,7 +24,7 @@ class Template:
         as a template. Currently just the vacation genre, but will update to have all the genres output. 
         
         Side effects:
-        d(dict) = stores the sifferent genres and stories in a dictionary.
+        d(dict) = stores the different genres and stories in a dictionary.
         Genre is the key, stories in the template are values. 
         genre(key value in dict): stores genre title in dictionary as key value
         story(value in dict): stores story as value
@@ -82,23 +82,22 @@ class Template:
         return generated_story
 
     
-    def format(filename): #Casey
-    """ Determines which types of words will be needed to fill in the content.
+    def format(self): #Casey
+    """ Iterates through the story of the genre picked by the user, locates the words in brackets and returns a list of the words without the brackets
         
-    Args: 
-        template(str): path to a txt file, in this case we are using the madlibstemplate.txt
+    Side Effects: 
+        locates the words that must be replaced by the user
 
     Returns:
-        The values of the txt file that are in []   
+        word_types(list): a list of the word types that need to be replaced by the user's input
+    
     """
-    with open(filename, "r", encoding="utf-8") as f:
-        madlibs = f.read()
-        word_types = re.sub(r"\[([^\]]+)\]", self.output)
-        return word_types
-        
-        
-    #takes story that was choosen in the genre (content) and replaces the square brackets w the user inputs
-    #using regex use finditer, sub
-    #method takes out square brackets
+    remove_brackets = r"\[([^\]]+)\]"
+    regex = re.compile(remove_brackets)
+    words = regex.finditer(self.story)
+    word_types = []
+    for word in words:
+        word_types.append(word.group(1))
+    return word_types    
         
     
