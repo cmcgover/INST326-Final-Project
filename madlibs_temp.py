@@ -39,8 +39,8 @@ class Template:
         d = {}
         x = content.split(":")
         genre = x[0]
-        story = x[1]
-        d[genre] = story 
+        self.story = x[1]
+        d[genre] = self.story 
         print(story) #instead of printing I think returning it would be better bc we need to use this variable in the next method
         
         
@@ -50,11 +50,11 @@ class Template:
         for word in self.story.strip():
             if word in keywords:
                 newWord=input('replace the word %s:' % word)
-                output.append(newWord)
+                self.output.append(newWord)
             else:
-                output.append(word)
+                self.output.append(word)
         
-        return output
+        return self.output
             
             
         #create a method that reads the madlibstemplate.txt and grabs the story that matches the inputed genre
@@ -81,7 +81,7 @@ class Template:
     """
     with open(filename, "r", encoding="utf-8") as f:
         madlibs = f.read()
-        word_types = re.sub(r"\[([^\]]+)\]", madlibs)
+        word_types = re.sub(r"\[([^\]]+)\]", self.output)
         return word_types
         
         
