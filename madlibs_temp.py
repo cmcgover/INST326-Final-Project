@@ -19,11 +19,19 @@ class Template:
     def genre(self, filename): #Amanu
     
         """ Choose the genre of the story to be generated
-       
+        **work in progress. Was not able to output all the genres, only the vacation genre. currently being worked on. 
         Args:
-        genre(str) User chooses between different genres such as vacation, park, zoo, or arcade.
+        filename(txt) User chooses between different genres such as vacation, park, zoo, or arcade to be used
+        as a template. Currently just the vacation genre, but will update to have all the genres output. 
+        
         Side effects:
-        Generates a story of the genre choosen
+        d(dict) = stores the sifferent genres and stories in a dictionary.
+        Genre is the key, stories in the template are values. 
+        genre(key value in dict): stores genre title in dictionary as key value
+        story(value in dict): stores story as value
+        
+        Return: 
+        story(dict): return the vacation genre  story. 
         
         """
         open_file = open(filename, "r")
