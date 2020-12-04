@@ -1,8 +1,4 @@
-Mad Libs Template 1
-
-Genre: Vacation 
-
-Story: A vacation is when you take a trip to some [adjective] place
+Vacation:A vacation is when you take a trip to some [adjective] place
 with your [adjective] family. Usually you go to some place
 that is near a/an [noun] or up on a/an [noun].
 A good vacation place is one where you can ride [plural noun]
@@ -19,11 +15,7 @@ need vacations more than kids because parents are always very
 hours every day all year making enough [plural noun] to pay
 for the vacation.
 
-Mad Libs Template 2
-
-Genre: Park 
-
-Story: Today, my fabulous camp group went to a (an)
+Park:Today, my fabulous camp group went to a (an)
 [adjective] amusement park. It was a
 fun park with lots of cool [plural noun]
 and enjoyable play structures. When we got there, my
@@ -44,11 +36,7 @@ I was a little [past tense verb] but I
 was proud of myself. The rest of the day went
 [adverb]. It was a(n) [adjective] day at the fun park. 
 
-Mad Libs Template 3
-
-Genre: Zoo 
-
-Story: Today I went to the zoo. I saw a(n)
+Zoo:Today I went to the zoo. I saw a(n)
 [adjective] [noun] jumping up and down in its tree.
 He [past tense verb] [adverb] through the large tunnel that led to its [adjective]
 [noun]. I got some peanuts and passed
@@ -60,11 +48,7 @@ of ice cream. It filled my stomach. Afterwards I had to
 When I got home I [past tense verb] my
 mom for a [adjective] day at the zoo. 
 
-Mad Libs Template 4
-
-Genre: Arcade 
-
-Story: When I go to the arcade with my [plural noun] there are lots of games to play. I spend
+Arcade:When I go to the arcade with my [plural noun] there are lots of games to play. I spend
 lots of time there with my friends. In the game X-Men
 you can be different [plural noun]. The
 point of the game is to [verb] every
