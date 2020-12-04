@@ -34,6 +34,7 @@ class Template:
         story(dict): return the vacation genre  story. 
         
         """
+        input("Choose a genre: vacation/park/zoo/arcade ")
         open_file = open(filename, "r")
         content = open_file.read()
         d = {}
