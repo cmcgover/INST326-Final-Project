@@ -54,7 +54,7 @@ class Template:
                 An input for user based on the words found in square brackets
                 
             Side effects:
-                Puts the user's input into a list that will be replaced back into the template.
+                output(list): Puts the user's input into a list that will be replaced back into the template.
         """
         output = []
         keywords=['[adjective]', '[noun]', '[plural noun]','[verb ending in "ing"]','[part of body]','[a place]','[number]','[adverb]','[past tense verb]','[verb]']
