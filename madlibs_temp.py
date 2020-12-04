@@ -2,7 +2,7 @@
 # https://www.madlibs.com/wp-content/uploads/2016/04/VacationFun_ML_2009_pg15.pdf
 # https://irp-cdn.multiscreensite.com/ec2b0ab8/files/uploaded/Mad%20Libs.pdf
                                             
-# Hello
+                                            
 import re
 
 class Template:
@@ -62,19 +62,23 @@ class Template:
         """
         
     
-    def format(filename):
-        """ Determines which types of words will be needed to fill in the content.
+    def format(filename): #Casey
+    """ Determines which types of words will be needed to fill in the content.
         
-        Args: 
-            template(str): path to a txt file, in this case we are using the madlibstemplate.txt
+    Args: 
+        template(str): path to a txt file, in this case we are using the madlibstemplate.txt
 
-        Returns:
-            The values of the txt file that are in []   
-        """
-        temp = open(filename, "r", encoding="utf-8")
-        blank_temp = re.sub()
-        #takes story that was choosen in the genre (content) and replaces the square brackets w the user inputs
-        #using regex use finditer, sub
-        #method takes out square brackets
+    Returns:
+        The values of the txt file that are in []   
+    """
+    with open(filename, "r", encoding="utf-8") as f:
+        madlibs = f.read()
+        word_types = re.sub(r"\[([^\]]+)\]", madlibs)
+        return word_types
+        
+        
+    #takes story that was choosen in the genre (content) and replaces the square brackets w the user inputs
+    #using regex use finditer, sub
+    #method takes out square brackets
         
     
