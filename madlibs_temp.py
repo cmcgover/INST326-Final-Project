@@ -44,7 +44,18 @@ class Template:
         print(story) #instead of printing I think returning it would be better bc we need to use this variable in the next method
         
         
-    def read(): #Chelsea
+    def read(filename): #Chelsea
+        """Using the story choosen in the genre method, this method finds 
+        the square brackets in the story and creates and input for the user to fill in.
+        
+            Args:
+                filename(str): madlibs template text file
+            Returns: 
+                An input for user based on the words found in square brackets
+                
+            Side effects:
+                Puts the user's input into a list that will be replaced back into the template.
+        """
         output = []
         keywords=['[adjective]', '[noun]', '[plural noun]','[verb ending in "ing"]','[part of body]','[a place]','[number]','[adverb]','[past tense verb]','[verb]']
         for word in self.story.strip():
@@ -56,8 +67,6 @@ class Template:
         
         return self.output
             
-            
-        #create a method that reads the madlibstemplate.txt and grabs the story that matches the inputed genre
     
     def generator(self, story): #Alhaji
         #prompts user for words in square brackets
