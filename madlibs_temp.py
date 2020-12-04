@@ -2,13 +2,20 @@
 # https://www.madlibs.com/wp-content/uploads/2016/04/VacationFun_ML_2009_pg15.pdf
 # https://irp-cdn.multiscreensite.com/ec2b0ab8/files/uploaded/Mad%20Libs.pdf
                                             
-                                            
+from argparse import ArgumentParser                                          
 import re
+import sys
 
 class Template:
     '''Generates the template
     
     '''
+    def __init__(self): #Chelsea
+        """Initializes content and output words
+        """
+        self.story = {}
+        self.output = []
+        
     def genre(self, filename): #Amanu
     
         """ Choose the genre of the story to be generated
@@ -26,12 +33,13 @@ class Template:
         genre = x[0]
         story = x[1]
         d[genre] = story 
-        print(story)
+        print(story) #instead of printing I think returning it would be better bc we need to use this variable in the next method
+        
         
     def read(): #Chelsea
         output = []
         keywords=['[adjective]', '[noun]', '[plural noun]','[verb ending in "ing"]','[part of body]','[a place]','[number]','[adverb]','[past tense verb]','[verb]']
-        for word in content.strip():
+        for word in self.story.strip():
             if word in keywords:
                 newWord=input('replace the word %s:' % word)
                 output.append(newWord)
