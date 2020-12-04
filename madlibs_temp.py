@@ -83,21 +83,21 @@ class Template:
 
     
     def format(self): #Casey
-    """ Iterates through the story of the genre picked by the user, locates the words in brackets and returns a list of the words without the brackets
+        """ Iterates through the story of the genre picked by the user, locates the words in brackets and returns a list of the words without the brackets
         
-    Side Effects: 
-        locates the words that must be replaced by the user
+        Side Effects: 
+            locates the words that must be replaced by the user
 
-    Returns:
-        word_types(list): a list of the word types that need to be replaced by the user's input
+        Returns:
+            word_types(list): a list of the word types that need to be replaced by the user's input
     
-    """
-    remove_brackets = r"\[([^\]]+)\]"
-    regex = re.compile(remove_brackets)
-    words = regex.finditer(self.story)
-    word_types = []
-    for word in words:
-        word_types.append(word.group(1))
-    return word_types    
+        """
+        remove_brackets = r"\[([^\]]+)\]"
+        regex = re.compile(remove_brackets)
+        words = regex.finditer(self.story)
+        word_types = []
+        for word in words:
+            word_types.append(word.group(1))
+        return word_types    
         
     
