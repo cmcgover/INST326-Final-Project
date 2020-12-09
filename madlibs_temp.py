@@ -24,6 +24,8 @@ class Template:
         filename(txt) User chooses between different genres such as vacation, park, zoo, or arcade to be used
         as a template. Currently just the vacation genre, but will update to have all the genres output. 
         
+    
+        
         Side effects:
         d(dict) = stores the sifferent genres and stories in a dictionary.
         Genre is the key, stories in the template are values. 
@@ -33,18 +35,21 @@ class Template:
         Return: 
         story(dict): return the vacation genre  story. 
         
-        """
-        input("Choose a genre: vacation/park/zoo/arcade ")
+        """    
         open_file = open(filename, "r")
         content = open_file.read()
-        d = {}
-        x = content.split(":")
-        genre = x[0]
-        self.story = x[1]
-        d[genre] = self.story 
-        print(story) #instead of printing I think returning it would be better bc we need to use this variable in the next method
-        
-        
+        self.d = {}
+        x = content.split("\n\n")
+        for template in x: 
+            y = template.split(":")
+            self.d[y[0].lower()] = y[1]
+         
+    def user_choice (self): #Amanu
+         user_input  = input("Choose a genre: vacation/park/zoo/arcade ")
+         return self.d[user_input]
+     # add, code to validate user input, and give them a chance to do it again. use while loop 
+         
+           
     def read(): #Chelsea
         output = []
         keywords=['[adjective]', '[noun]', '[plural noun]','[verb ending in "ing"]','[part of body]','[a place]','[number]','[adverb]','[past tense verb]','[verb]']
@@ -72,18 +77,18 @@ class Template:
         
     
     def format(filename): #Casey
-    """ Determines which types of words will be needed to fill in the content.
+        """ Determines which types of words will be needed to fill in the content.
         
-    Args: 
+        Args: 
         template(str): path to a txt file, in this case we are using the madlibstemplate.txt
 
-    Returns:
+        Returns:
         The values of the txt file that are in []   
-    """
-    with open(filename, "r", encoding="utf-8") as f:
-        madlibs = f.read()
-        word_types = re.sub(r"\[([^\]]+)\]", self.output)
-        return word_types
+        """
+        with open(filename, "r", encoding="utf-8") as f:
+            madlibs = f.read()
+            word_types = re.sub(r"\[([^\]]+)\]", self.output)
+            return word_types
         
         
     #takes story that was choosen in the genre (content) and replaces the square brackets w the user inputs
