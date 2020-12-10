@@ -34,7 +34,6 @@ class Template:
         Return: 
         story(dict): return the vacation genre  story. 
         
-<<<<<<< HEAD
         """    
         open_file = open(filename, "r")
         content = open_file.read()
@@ -47,35 +46,12 @@ class Template:
     def user_choice (self): #Amanu
          user_input  = input("Choose a genre: vacation/park/zoo/arcade ")
          return self.d[user_input]
+        while: 
+            
      # add, code to validate user input, and give them a chance to do it again. use while loop 
          
            
     def read(): #Chelsea
-=======
-        """
-        open_file = open(filename, "r")
-        content = open_file.read()
-        d = {}
-        x = content.split(":")
-        genre = x[0]
-        self.story = x[1]
-        d[genre] = self.story 
-        print(story) #instead of printing I think returning it would be better bc we need to use this variable in the next method
-        
-        
-    def read(filename): #Chelsea
-        """Using the story choosen in the genre method, this method finds 
-        the square brackets in the story and creates and input for the user to fill in.
-        
-            Args:
-                filename(str): madlibs template text file
-            Returns: 
-                An input for user based on the words found in square brackets
-                
-            Side effects:
-                output(list): Puts the user's input into a list that will be replaced back into the template.
-        """
->>>>>>> 4a6372eebfdec4685ad3e059f7860aaeb5634a74
         output = []
         keywords=['[adjective]', '[noun]', '[plural noun]','[verb ending in "ing"]','[part of body]','[a place]','[number]','[adverb]','[past tense verb]','[verb]']
         for word in self.story.strip():
@@ -103,7 +79,6 @@ class Template:
         return generated_story
 
     
-<<<<<<< HEAD
     def format(filename): #Casey
         """ Determines which types of words will be needed to fill in the content.
         
@@ -122,24 +97,5 @@ class Template:
     #takes story that was choosen in the genre (content) and replaces the square brackets w the user inputs
     #using regex use finditer, sub
     #method takes out square brackets
-=======
-    def format(self): #Casey
-        """ Iterates through the story of the genre picked by the user, locates the words in brackets and returns a list of the words without the brackets
-        
-        Side Effects: 
-            locates the words that must be replaced by the user
-
-        Returns:
-            word_types(list): a list of the word types that need to be replaced by the user's input
-    
-        """
-        remove_brackets = r"\[([^\]]+)\]"
-        regex = re.compile(remove_brackets)
-        words = regex.finditer(self.story)
-        word_types = []
-        for word in words:
-            word_types.append(word.group(1))
-        return word_types    
->>>>>>> 4a6372eebfdec4685ad3e059f7860aaeb5634a74
         
     
