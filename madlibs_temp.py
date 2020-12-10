@@ -16,7 +16,7 @@ class Template:
         self.story = {}
         self.output = []
         
-    def genre(self, genre):
+    def genre(self, genre): #Amanu
         """ Choose the genre of the story to be generated
         **work in progress. Was not able to output all the genres, only the vacation genre. currently being worked on. 
         Args:
@@ -35,18 +35,18 @@ class Template:
         story(dict): return the vacation genre  story. 
         
         """    
-        open_file = open(filename, "r")
+        open_file = open(genre, "r")
         content = open_file.read()
         self.d = {}
         x = content.split("\n\n")
         for template in x: 
-            y = template.split(":")
+            y = template.strip().split(":")
             self.d[y[0].lower()] = y[1]
          
     def user_choice (self): #Amanu
-         user_input  = input("Choose a genre: vacation/park/zoo/arcade ")
-         return self.d[user_input]
-        while: 
+        user_input  = input("Choose a genre: vacation/park/zoo/arcade ")
+        return self.d[user_input]
+
             
      # add, code to validate user input, and give them a chance to do it again. use while loop 
          
@@ -97,5 +97,8 @@ class Template:
     #takes story that was choosen in the genre (content) and replaces the square brackets w the user inputs
     #using regex use finditer, sub
     #method takes out square brackets
-        
+if __name__ == "__main__": 
+    x = Template()
+    print(x.genre("madlibstemplate.txt"))
+    
     
