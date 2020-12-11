@@ -22,9 +22,7 @@ class Template:
         Args:
         filename(txt) User chooses between different genres such as vacation, park, zoo, or arcade to be used
         as a template. Currently just the vacation genre, but will update to have all the genres output. 
-        
     
-        
         Side effects:
         d(dict) = stores the different genres and stories in a dictionary.
         Genre is the key, stories in the template are values. 
@@ -49,10 +47,9 @@ class Template:
 
             
      # add, code to validate user input, and give them a chance to do it again. use while loop 
-         
-           
-    def read(): #Chelsea
-        output = []
+            
+    def read(self, genre): #Chelsea
+        self.output = []
         keywords=['[adjective]', '[noun]', '[plural noun]','[verb ending in "ing"]','[part of body]','[a place]','[number]','[adverb]','[past tense verb]','[verb]']
         for word in self.story.strip():
             if word in keywords:
