@@ -51,7 +51,7 @@ class Template:
     def read(self, genre): #Chelsea
         self.output = []
         keywords=['[adjective]', '[noun]', '[plural noun]','[verb ending in "ing"]','[part of body]','[a place]','[number]','[adverb]','[past tense verb]','[verb]']
-        for word in self.story.strip():
+        for word in self.d:
             if word in keywords:
                 newWord=input('replace the word %s:' % word)
                 self.output.append(newWord)
@@ -94,6 +94,24 @@ class Template:
     #takes story that was choosen in the genre (content) and replaces the square brackets w the user inputs
     #using regex use finditer, sub
     #method takes out square brackets
+    
+def parse_args(argList):
+    """Parses command-line arguments.
+
+    The following required command-line arguments are defined:
+
+    genre: a txt file
+
+    Args:
+        arglist (list of str): a list of command-line arguments.
+
+    Returns:
+        namespace: a namespace with the story replaced with the user's inputted words.
+    """
+    parser= ArgumentParser()
+    parser.add_argument("genre", help ="path to txt file called madlibstemplate.txt")
+    return parser.parse_args(argList)
+
 if __name__ == "__main__": 
     x = Template()
     print(x.genre("madlibstemplate.txt"))
