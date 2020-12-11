@@ -15,6 +15,7 @@ class Template:
         """
         self.story = {}
         self.output = []
+        self.d = []
         
     def genre(self, genre): #Amanu
         """ Choose the genre of the story to be generated
