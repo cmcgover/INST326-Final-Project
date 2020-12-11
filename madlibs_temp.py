@@ -78,23 +78,22 @@ class Template:
 
     
     def format(filename): #Casey
-        """ Determines which types of words will be needed to fill in the content.
+        """ Iterates through the story of the genre picked by the user, locates the words in brackets and returns a list of the words without the brackets
         
-        Args: 
-        template(str): path to a txt file, in this case we are using the madlibstemplate.txt
+        Side Effects: 
+        locates the words that must be replaced by the user
 
         Returns:
-        The values of the txt file that are in []   
+        word_types(list): a list of the word types that need to be replaced by the user's input   
         """
-        with open(filename, "r", encoding="utf-8") as f:
-            madlibs = f.read()
-            word_types = re.sub(r"\[([^\]]+)\]", self.output)
-            return word_types
+        remove_brackets = r"\[([^\]]+)\]"
+        regex = re.compile(remove_brackets)
+        words = regex.finditer(self.story)
+        word_types = []
+        for word in words:
+            word_types.append(word.group(1))
+        return word_types 
         
-        
-    #takes story that was choosen in the genre (content) and replaces the square brackets w the user inputs
-    #using regex use finditer, sub
-    #method takes out square brackets
     
 def parse_args(argList):
     """Parses command-line arguments.
