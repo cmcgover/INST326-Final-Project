@@ -13,7 +13,7 @@ class Template:
     def __init__(self): #Chelsea
         """Initializes content and output words
         """
-        self.story = {}
+        self.story = " "
         self.output = []
         self.d = []
         
@@ -62,22 +62,21 @@ class Template:
         return self.output
             
     
-    def generator(self, filename): #Alhaji
-        #prompts user for words in square brackets
-        #uses output to ask user to fill in words
-        """Takes the list output from read() and replaces all the words with brackets from the story
-            pulled from genre()
-        Arg:
-        filename: path leading to file
+    def generator(self): #Alhaji
+        """Uses re.sub function to substitute all words inside brackets with "{}"
+            then uses .format funtion to replace the "{}" with words in self.output in order
         
         Side effects:
-        returns generated_story
+            self.story gets updated
         """
-        generated_story = re.sub(r"\[([^\]]+)\]", read(), genre())
-        return generated_story
-
+        string = " " #output of user_choice(self)
     
-    def format(filename): #Casey
+   
+        brackets_sub = re.sub(r"\[([^\]]+)\]", "{}", string)
+        self.story = brackets_sub.format(*self.output)
+        
+    
+    def format(self, filename): #Casey
         """ Iterates through the story of the genre picked by the user, locates the words in brackets and returns a list of the words without the brackets
         
         Side Effects: 
