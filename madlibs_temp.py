@@ -51,11 +51,13 @@ class Template:
             
     def read(self, genre): #Chelsea
         self.output = []
-        keywords=['[adjective]', '[noun]', '[plural noun]','[verb ending in "ing"]','[part of body]','[a place]','[number]','[adverb]','[past tense verb]','[verb]']
+        keywords=['[adjective]', '[noun]', '[plural noun]',
+                  '[verb ending in "ing"]','[part of body]','[a place]',
+                  '[number]','[adverb]','[past tense verb]','[verb]']
         for word in self.d:
             if word in keywords:
-                newWord=input('replace the word %s:' % word)
-                self.output.append(newWord)
+                new_word=input('replace the word %s:' % word)
+                self.output.append(new_word)
             else:
                 self.output.append(word)
         
