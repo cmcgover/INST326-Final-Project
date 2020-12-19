@@ -10,14 +10,17 @@ class Template:
     """Generates the template
     """
     
-    def __init__(self): #Chelsea
+    def __init__(self,file): #Chelsea
         """Initializes content and output words
+        args: 
+        file(str): name of the template file
         """
         self.story = " "
         self.output = []
-        self.d = []
+        self.genre(file)
         
-    def genre(self, genre): #Amanu
+        
+    def genre(self, file): #Amanu
         """ Choose the genre of the story to be generated
         **work in progress. Was not able to output all the genres, only the vacation genre. currently being worked on. 
         Args:
@@ -34,7 +37,7 @@ class Template:
         story(dict): return the vacation genre  story. 
         
         """    
-        open_file = open(genre, "r")
+        open_file = open(file, "r")
         content = open_file.read()
         self.d = {}
         x = content.split("\n\n")
@@ -49,7 +52,7 @@ class Template:
             
      # add, code to validate user input, and give them a chance to do it again. use while loop 
             
-    def read(self, genre): #Chelsea
+    def read(self,template): #Chelsea
         self.output= []
         keywords=['[adjective]', '[noun]', '[plural noun]',
                   '[verb ending in "ing"]','[part of body]','[a place]',
@@ -61,7 +64,7 @@ class Template:
         return self.output
             
     
-    def generator(self): #Alhaji
+    def generator(self,template): #Alhaji
         """Uses re.sub function to substitute all words inside brackets with "{}"
             then uses .format funtion to replace the "{}" with words in self.output in order
         
