@@ -53,7 +53,7 @@ class Template:
      # add, code to validate user input, and give them a chance to do it again. use while loop 
             
     def read(self,template): #Chelsea
-        self.output= []
+        self.output = []
         keywords=['[adjective]', '[noun]', '[plural-noun]', '[game]', '[plant]',
                   '[verb-ending-in-ing]','[place]','[part-of-body]',
                   '[number]','[adverb]','[past-tense-verb]','[verb]']
@@ -79,7 +79,7 @@ class Template:
         self.story = brackets_sub.format(*self.output)
         
     
-    def format(self, filename): #Casey
+    def user_answers(self): #Casey
         """ Iterates through the story of the genre picked by the user, locates the words in brackets and returns a list of the words without the brackets
         
         Side Effects: 
@@ -88,13 +88,13 @@ class Template:
         Returns:
         word_types(list): a list of the word types that need to be replaced by the user's input   
         """
-        remove_brackets = r"\[([^\]]+)\]"
-        regex = re.compile(remove_brackets)
-        words = regex.finditer(self.story)
-        word_types = []
-        for word in words:
-            word_types.append(word.group(1))
-        return word_types 
+        user_words = []
+        for word in self.output:
+            user_response = input(f"Please enter a(n) {word}")
+            user_words.append(user_response)
+        return user_words
+    
+    
         
     
 def parse_args(argList):
