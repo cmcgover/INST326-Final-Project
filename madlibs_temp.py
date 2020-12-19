@@ -54,12 +54,13 @@ class Template:
             
     def read(self,template): #Chelsea
         self.output= []
-        keywords=['[adjective]', '[noun]', '[plural noun]',
-                  '[verb ending in "ing"]','[part of body]','[a place]',
-                  '[number]','[adverb]','[past tense verb]','[verb]']
+        keywords=['[adjective]', '[noun]', '[plural-noun]', '[game]', '[plant]',
+                  '[verb-ending-in-ing]','[place]','[part-of-body]',
+                  '[number]','[adverb]','[past-tense-verb]','[verb]']
         for word in self.d:
-            if word in keywords:
-                self.output.append(word)
+            for item in keywords:
+                if item in word:
+                    self.output.append(word)
         
         return self.output
             
