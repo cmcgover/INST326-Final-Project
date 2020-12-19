@@ -57,7 +57,7 @@ class Template:
         keywords=['[adjective]', '[noun]', '[plural-noun]', '[game]', '[plant]',
                   '[verb-ending-in-ing]','[place]','[part-of-body]',
                   '[number]','[adverb]','[past-tense-verb]','[verb]']
-        for word in self.d:
+        for word in template:
             for item in keywords:
                 if item in word:
                     self.output.append(word)
