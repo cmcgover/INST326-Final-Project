@@ -50,15 +50,12 @@ class Template:
      # add, code to validate user input, and give them a chance to do it again. use while loop 
             
     def read(self, genre): #Chelsea
-        self.output = []
+        self.output= []
         keywords=['[adjective]', '[noun]', '[plural noun]',
                   '[verb ending in "ing"]','[part of body]','[a place]',
                   '[number]','[adverb]','[past tense verb]','[verb]']
         for word in self.d:
             if word in keywords:
-                new_word=input('replace the word %s:' % word)
-                self.output.append(new_word)
-            else:
                 self.output.append(word)
         
         return self.output
@@ -113,8 +110,6 @@ def parse_args(argList):
     parser.add_argument("genre", help ="path to txt file called madlibstemplate.txt")
     return parser.parse_args(argList)
 
-if __name__ == "__main__": 
-    x = Template()
-    print(x.genre("madlibstemplate.txt"))
+
     
     
