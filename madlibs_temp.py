@@ -87,13 +87,14 @@ class Template:
         Returns:
         word_types(list): a list of the word types that need to be replaced by the user's input   
         """
+        remove_brackets = r"\[([^\]]+)\]"
+        regex = re.compile(remove_brackets)
         user_words = []
         for word in self.output:
-            user_response = input(f"Please enter a(n) {word}")
+            new_word = regex.finditer(word)
+            user_response = input(f"Please enter a(n) {new_word.group(1)}")
             user_words.append(user_response)
         return user_words
-    
-    
         
     
 def parse_args(argList):
