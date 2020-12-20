@@ -44,7 +44,7 @@ class Template:
             y = template.strip().split(":")
             self.d[y[0].lower()] = y[1]
          
-    def user_choice (self): #Amanu
+    def user_choice(self): #Amanu
         user_input  = input("Choose a genre: vacation/park/zoo/arcade ")
         return self.d[user_input]
 
@@ -115,8 +115,24 @@ def parse_args(argList):
 
 def main():
     args = parse_args(sys.argv[1:])
-    temp = Template(“madlibstemplate.txt”)
-    user_input = temp.user_choice()
-    story_brackets = user_input.genre(“madlibstemplate.txt”)
-    identified_brackets = read()
     
+    x = True
+    while x == True:
+        template = Template("madlibstemplate.txt")
+        user_input = template.user_choice()
+        story_brackets = user_input.template.genre("madlibstemplate.txt")
+        template.read(story_brackets)
+        story = template.generator(story_brackets, template.user_answers())
+        
+        print(story)
+        answer = input("Play Again? y/n: ")
+        
+        while answer != "y" or answer != "n":
+            answer = input("Please Enter 'y' or 'n': ")
+        
+        if answer == "y":
+            x = True
+        elif answer == "n":
+            x = False
+    
+    print("Thanks for playing!\nCreators:\nAmanu Huq\nAlhaji Bah\nChelsea McGovern\nCasey Tabatabai")
