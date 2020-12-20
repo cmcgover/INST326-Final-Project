@@ -22,7 +22,6 @@ class Template:
         
     def genre(self, file): #Amanu
         """ Choose the genre of the story to be generated
-        **work in progress. Was not able to output all the genres, only the vacation genre. currently being worked on. 
         Args:
         filename(txt) User chooses between different genres such as vacation, park, zoo, or arcade to be used
         as a template. Currently just the vacation genre, but will update to have all the genres output. 
