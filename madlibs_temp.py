@@ -64,19 +64,17 @@ class Template:
         return self.output
             
     
-    def generator(self,template): #Alhaji
+    def generator(self, template, user_answers): #Alhaji
         """Uses re.sub function to substitute all words inside brackets with "{}"
             then uses .format funtion to replace the "{}" with words in self.output in order
         
         Side effects:
             self.story gets updated
         """
-        string = " " #output of user_choice(self)
-    
    
-        brackets_sub = re.sub(r"\[([^\]]+)\]", "{}", string)
-        self.story = brackets_sub.format(*self.output)
-        
+        brackets_sub = re.sub(r"\[([^\]]+)\]", "{}", template)
+        self.story = brackets_sub.format(*user_answers)
+        return self.story
     
     def user_answers(self): #Casey
         """ Iterates through the story of the genre picked by the user, locates the words in brackets and returns a list of the words without the brackets
@@ -115,5 +113,10 @@ def parse_args(argList):
     return parser.parse_args(argList)
 
 
-    
+def main():
+    args = parse_args(sys.argv[1:])
+    temp = Template(“madlibstemplate.txt”)
+    user_input = temp.user_choice()
+    story_brackets = user_input.genre(“madlibstemplate.txt”)
+    identified_brackets = read()
     
