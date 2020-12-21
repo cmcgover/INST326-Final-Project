@@ -75,13 +75,17 @@ class Template:
         return self.output
     
     def user_answers(self,template): #Casey
-        """ Iterates through the story of the genre picked by the user, locates the words in brackets and returns a list of the words without the brackets
+        """ Iterates through the words types within the genre that need to be replaced,
+        and asks the user for new words
+        
+        Args:
+        template(str): the story generated based on what genre the user has chosen
         
         Side Effects: 
-        locates the words that must be replaced by the user
+        Creates an empty string named user_words that will be filled with the users answers
 
         Returns:
-        word_types(list): a list of the word types that need to be replaced by the user's input   
+        user_words(list): Returns a list of the user's answers in the correct order 
         """
         user_words = []
         for word in self.output:
