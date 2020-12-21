@@ -85,7 +85,7 @@ class Template:
         """
         user_words = []
         for word in self.output:
-            user_response = input(f"Please enter a(n) {word}")
+            user_response = input(f"Please enter a(n) {word}: ")
             user_words.append(user_response)
         return user_words
         
