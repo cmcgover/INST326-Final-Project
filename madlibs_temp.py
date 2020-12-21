@@ -46,7 +46,11 @@ class Template:
          
     def user_choice(self): #Amanu
         user_input  = input("Choose a genre: vacation/park/zoo/arcade ")
-        return self.d[user_input]
+        user_input.strip("\n")
+        while  user_input not in  ['vacation' ,'park' ,'zoo' ,'arcade']:
+            user_input = input("Choose a genre: vacation/park/zoo/arcade ")
+        else:    
+            return self.d[user_input]
 
                 
     def read(self,template): #Chelsea
