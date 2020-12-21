@@ -117,7 +117,6 @@ def parse_args(argList):
 
 def main():
     args = parse_args(sys.argv[1:])
-    
     x = True
     while x == True:
         template = Template(args.filename)
