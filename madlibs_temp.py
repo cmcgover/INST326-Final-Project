@@ -53,13 +53,15 @@ class Template:
             
     def read(self,template): #Chelsea
         self.output = []
+        l = []
         keywords=['[adjective]', '[noun]', '[plural-noun]', '[game]', '[plant]',
                   '[verb-ending-in-ing]','[place]','[part-of-body]',
                   '[number]','[adverb]','[past-tense-verb]','[verb]']
-        for word in template:
+        t = template.split(" ")
+        for word in t:
             for item in keywords:
-                if item in word:
-                    self.output.append(word)
+                if item == word:
+                    self.output.append(item)
         
         return self.output
             
