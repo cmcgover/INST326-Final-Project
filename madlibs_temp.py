@@ -48,10 +48,15 @@ class Template:
         user_input  = input("Choose a genre: vacation/park/zoo/arcade ")
         return self.d[user_input]
 
-            
-     # add, code to validate user input, and give them a chance to do it again. use while loop 
-            
+                
     def read(self,template): #Chelsea
+        """ Finds "missing words" in the chosen story and returns a list of what needs to be filled in by the user.
+        Args:
+            template(str): the story generated based on what genre the user has chosen 
+        
+        Returns:
+            self.output(list): the words that need to be replaced into the story
+        """
         self.output = []
         keywords=['[adjective]', '[noun]', '[plural-noun]', '[game]', '[plant]',
                   '[verb-ending-in-ing]','[place]','[part-of-body]',
@@ -64,19 +69,6 @@ class Template:
                     self.output.append(item)
         
         return self.output
-            
-    
-    def generator(self, template, user_answers): #Alhaji
-        """Uses re.sub function to substitute all words inside brackets with "{}"
-            then uses .format funtion to replace the "{}" with words in self.output in order
-        
-        Side effects:
-            self.story gets updated
-        """
-   
-        brackets_sub = re.sub(r"\[([^\]]+)\]", "{}", template)
-        self.story = brackets_sub.format(*user_answers)
-        return self.story
     
     def user_answers(self,template): #Casey
         """ Iterates through the story of the genre picked by the user, locates the words in brackets and returns a list of the words without the brackets
@@ -93,6 +85,17 @@ class Template:
             user_words.append(user_response)
         return user_words
         
+    def generator(self, template, user_answers): #Alhaji
+        """Uses re.sub function to substitute all words inside brackets with "{}"
+            then uses .format funtion to replace the "{}" with words in self.output in order
+        
+        Side effects:
+            self.story gets updated
+        """
+   
+        brackets_sub = re.sub(r"\[([^\]]+)\]", "{}", template)
+        self.story = brackets_sub.format(*user_answers)
+        return self.story
     
 def parse_args(argList):
     """Parses command-line arguments.
