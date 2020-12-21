@@ -114,30 +114,24 @@ def parse_args(argList):
     Returns:
         namespace: a namespace with the story replaced with the user's inputted words.
     """
-    parser= ArgumentParser()
+    parser = ArgumentParser()
     parser.add_argument("filename", help ="path to txt file called madlibstemplate.txt")
     return parser.parse_args(argList)
 
 
-def main():
-    args = parse_args(sys.argv[1:])
-    x = True
-    while x == True:
-        template = Template(args.filename)
-        template.genre(args.filename)
-        story_brackets = template.user_choice()
-        template.read(story_brackets)
-        story = template.generator(story_brackets, template.user_answers())
-        
-        print(story)
-        answer = input("Play Again? y/n: ")
-        
-        while answer != "y" or answer != "n":
-            answer = input("Please Enter 'y' or 'n': ")
-        
-        if answer == "y":
-            x = True
-        elif answer == "n":
-            x = False
+def main(file):
+    temp = Template(file)
+    x = temp.user_choice()
+    blanks = temp.read(x)
+    new_words = temp.user_answers(blanks)
+          
+    print(new_words)
+    answer = input("Play Again? y/n: ")  
+    if answer == "y":
+        main(file)
+    elif answer == "n":
+        print("Thanks for playing!\nCreated by: Amanu Huq, Alhaji Bah, Chelsea McGovern, Casey Tabatabai")
     
-    print("Thanks for playing!\nCreators:\nAmanu Huq\nAlhaji Bah\nChelsea McGovern\nCasey Tabatabai")
+if __name__ == "__main__":
+    args = parse_args(sys.argv[1:])
+    main(args.filename)
