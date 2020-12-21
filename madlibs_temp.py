@@ -18,6 +18,7 @@ class Template:
         self.story = " "
         self.output = []
         self.genre(file)
+        self.user_words = []
         
         
     def genre(self, file): #Amanu
@@ -83,21 +84,20 @@ class Template:
         Returns:
         word_types(list): a list of the word types that need to be replaced by the user's input   
         """
-        user_words = []
+        self.user_words = []
         for word in self.output:
             user_response = input(f"Please enter a(n) {word}: ")
-            user_words.append(user_response)
-        return user_words
+            self.user_words.append(user_response)
+        return self.user_words
         
-    def generator(self, template, user_answers): #Alhaji
+    def generator(self, template): #Alhaji
         """Uses re.sub function to substitute all words inside brackets with "{}"
             then uses .format funtion to replace the "{}" with words in self.output in order
         
         Side effects:
             self.story gets updated
         """
-   
-        brackets_sub = re.sub(r"\[([^\]]+)\]", "{}", template)
+        brackets_sub = re.sub(r"(\[[^\]]+\])", "{}", template)
         self.story = brackets_sub.format(*user_answers)
         return self.story
     
