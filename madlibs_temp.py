@@ -38,9 +38,9 @@ class Template:
         
         """    
         open_file = open(file, "r")
-        content = open_file.read()
+        self.content = open_file.read()
         self.d = {}
-        x = content.split("\n\n")
+        x = self.content.split("\n\n")
         for template in x: 
             y = template.strip().split(":")
             self.d[y[0].lower()] = y[1]
@@ -76,13 +76,17 @@ class Template:
         return self.output
     
     def user_answers(self,template): #Casey
-        """ Iterates through the story of the genre picked by the user, locates the words in brackets and returns a list of the words without the brackets
+        """ Iterates through the words types within the genre that need to be replaced,
+        and asks the user for new words
+        
+        Args:
+        template(str): the story generated based on what genre the user has chosen
         
         Side Effects: 
-        locates the words that must be replaced by the user
+        Creates an empty string named user_words that will be filled with the users answers
 
         Returns:
-        word_types(list): a list of the word types that need to be replaced by the user's input   
+        user_words(list): Returns a list of the user's answers in the correct order 
         """
         self.user_words = []
         for word in self.output:
