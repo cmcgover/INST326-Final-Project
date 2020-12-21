@@ -60,7 +60,7 @@ class Template:
         t = template.split(" ")
         for word in t:
             for item in keywords:
-                if item == word:
+                if item in word:
                     self.output.append(item)
         
         return self.output
