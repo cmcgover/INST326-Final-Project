@@ -37,9 +37,9 @@ class Template:
         
         """    
         open_file = open(file, "r")
-        content = open_file.read()
+        self.content = open_file.read()
         self.d = {}
-        x = content.split("\n\n")
+        x = self.content.split("\n\n")
         for template in x: 
             y = template.strip().split(":")
             self.d[y[0].lower()] = y[1]
