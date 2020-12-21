@@ -53,7 +53,6 @@ class Template:
             
     def read(self,template): #Chelsea
         self.output = []
-        l = []
         keywords=['[adjective]', '[noun]', '[plural-noun]', '[game]', '[plant]',
                   '[verb-ending-in-ing]','[place]','[part-of-body]',
                   '[number]','[adverb]','[past-tense-verb]','[verb]']
@@ -61,6 +60,7 @@ class Template:
         for word in t:
             for item in keywords:
                 if item in word:
+                    item = item[1:len(item) - 1]
                     self.output.append(item)
         
         return self.output
@@ -78,7 +78,7 @@ class Template:
         self.story = brackets_sub.format(*user_answers)
         return self.story
     
-    def user_answers(self): #Casey
+    def user_answers(self,template): #Casey
         """ Iterates through the story of the genre picked by the user, locates the words in brackets and returns a list of the words without the brackets
         
         Side Effects: 
@@ -87,12 +87,9 @@ class Template:
         Returns:
         word_types(list): a list of the word types that need to be replaced by the user's input   
         """
-        remove_brackets = r"\[([^\]]+)\]"
-        regex = re.compile(remove_brackets)
         user_words = []
         for word in self.output:
-            new_word = regex.finditer(word)
-            user_response = input(f"Please enter a(n) {new_word.group(1)}")
+            user_response = input(f"Please enter a(n) {word}")
             user_words.append(user_response)
         return user_words
         
@@ -111,7 +108,7 @@ def parse_args(argList):
         namespace: a namespace with the story replaced with the user's inputted words.
     """
     parser= ArgumentParser()
-    parser.add_argument("genre", help ="path to txt file called madlibstemplate.txt")
+    parser.add_argument("filename", help ="path to txt file called madlibstemplate.txt")
     return parser.parse_args(argList)
 
 
@@ -120,9 +117,9 @@ def main():
     
     x = True
     while x == True:
-        template = Template("madlibstemplate.txt")
-        user_input = template.user_choice()
-        story_brackets = user_input.template.genre("madlibstemplate.txt")
+        template = Template(args.filename)
+        template.genre(args.filename)
+        story_brackets = template.user_choice()
         template.read(story_brackets)
         story = template.generator(story_brackets, template.user_answers())
         
