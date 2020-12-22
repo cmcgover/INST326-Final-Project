@@ -1,0 +1,7 @@
+story1: How is your day 
+
+story2: This is finals week 
+
+story3: Today is the last day of finals week 
+
+story4: Tomorrow is winter break 
