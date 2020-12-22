@@ -19,6 +19,7 @@ class Template:
         self.output = []
         self.genre(file)
         self.user_words = []
+        self.user_input= ""
         
         
     def genre(self, file): #Amanu
@@ -46,12 +47,12 @@ class Template:
             self.d[y[0].lower()] = y[1]
          
     def user_choice(self): #Amanu
-        user_input  = input("Choose a genre: vacation/park/zoo/arcade ")
-        user_input.strip("\n")
-        while  user_input not in  ['vacation' ,'park' ,'zoo' ,'arcade']:
-            user_input = input("Choose a genre: vacation/park/zoo/arcade ")
+        self.user_input  = input("Choose a genre: vacation/park/zoo/arcade ")
+        self.user_input.strip("\n")
+        while self.user_input not in  ['vacation' ,'park' ,'zoo' ,'arcade']:
+            self.user_input = input("Choose a genre: vacation/park/zoo/arcade ")
         else:    
-            return self.d[user_input]
+            return self.d[self.user_input]
 
                 
     def read(self,template): #Chelsea
@@ -101,8 +102,8 @@ class Template:
         Side effects:
             self.story gets updated
         """
-        brackets_sub = re.sub(r"(\[[^\]]+\])", "{}", template)
-        self.story = brackets_sub.format(*user_answers)
+        brackets_sub = re.sub(r"(\[[^\]]+\])", "{}", self.d[self.user_input])
+        self.story = brackets_sub.format(*self.user_words)
         return self.story
     
 def parse_args(argList):
@@ -128,8 +129,9 @@ def main(file):
     x = temp.user_choice()
     blanks = temp.read(x)
     new_words = temp.user_answers(blanks)
-          
-    print(new_words)
+    story = temp.generator(new_words)      
+    print(story)
+    
     answer = input("Play Again? y/n: ")  
     if answer == "y":
         main(file)
