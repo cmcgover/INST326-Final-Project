@@ -132,9 +132,13 @@ def parse_args(argList):
 
 
 def main(file):
+    """Generates the story based on what genre the user selects. Then prompts user to fill in word so a
+    story is generated.
+    """
     temp = Template(file)
+    print("Welcome to the MadLibs game! Pick a genre to begin.\n")
     x = temp.user_choice()
-    print("\n", x, "\n")
+    print("\nFill in the following words to complete the story!")
     blanks = temp.read(x)
     new_words = temp.user_answers(blanks)
     story = temp.generator(new_words)      
