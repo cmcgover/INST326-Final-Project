@@ -140,11 +140,14 @@ def main(file):
     story = temp.generator(new_words)      
     print("\n", story)
     
-    answer = input("\nPlay Again? y/n: ")  
+    answer = input("\nPlay Again? y/n: ")
+    while answer != "y" and answer != "n":
+        answer = input("Please enter 'y' or 'n': ")
+            
     if answer == "y":
         main(file)
     elif answer == "n":
-        print("Thanks for playing!\nCreated by: Amanu Huq, Alhaji Bah, Chelsea McGovern, Casey Tabatabai")
+        print("\nThanks for playing!\nCreated by: Amanu Huq, Alhaji Bah, Chelsea McGovern, Casey Tabatabai")
     
 if __name__ == "__main__":
     args = parse_args(sys.argv[1:])
