@@ -97,10 +97,17 @@ class Template:
         
     def generator(self, template): #Alhaji
         """Uses re.sub function to substitute all words inside brackets with "{}"
-            then uses .format funtion to replace the "{}" with words in self.output in order
+            then uses .format funtion to replace the "{}" with words in self.user_words in order
         
-        Side effects:
-            self.story gets updated
+        Args:
+            template(str): the story generated based on what genre the user has chosen 
+            
+        Side Effects:
+            brackets_sub becomes a string with words inside brackets replaced with "{}"
+            self.story gets updated to a string with "{}" replaced with words the user inputed in proper order
+        
+        Returns:
+            self.story
         """
         brackets_sub = re.sub(r"(\[[^\]]+\])", "{}", self.d[self.user_input])
         self.story = brackets_sub.format(*self.user_words)
@@ -127,12 +134,13 @@ def parse_args(argList):
 def main(file):
     temp = Template(file)
     x = temp.user_choice()
+    print("\n", x, "\n")
     blanks = temp.read(x)
     new_words = temp.user_answers(blanks)
     story = temp.generator(new_words)      
-    print(story)
+    print("\n", story)
     
-    answer = input("Play Again? y/n: ")  
+    answer = input("\nPlay Again? y/n: ")  
     if answer == "y":
         main(file)
     elif answer == "n":
