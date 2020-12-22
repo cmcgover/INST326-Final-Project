@@ -5,8 +5,6 @@ def test_genre():
     assert self.content
     assert self.d.keys() in ['park'] 
     assert len(self.d.keys()) ==  1
-        
-def test_user_choice():
     
 def test_read():
     
