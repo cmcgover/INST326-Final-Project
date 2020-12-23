@@ -101,13 +101,6 @@ class Template:
             user_words(list): Returns a list of the user's answers in the correct order 
         """
         for word in self.output:
-            while word == "number":
-                try: 
-                    num = int(input("Please enter a number: "))
-                except ValueError:
-                    print("That is not a number")
-                    continue
-                break
             article = ("an") if word == ("adjective" or "adverb") else ("a")
             user_response = input(f"Please enter {article} {word}: ")
             self.user_words.append(user_response)

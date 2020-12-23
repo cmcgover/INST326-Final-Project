@@ -63,23 +63,18 @@ def test_generator():
   
     
 def test_user_answers():
-    t = ("A vacation is when you take a trip to some [adjective] place with your [adjective] family."
-         "Usually you go to some place that is near a/an [noun] or up on a/an [noun]. A good vacation place isone where you can ride [plural-noun] or play [game] or go hunting for [plural-noun] ."
-         " I like to spend my time [verb-ending-in-ing] or [verb-ending-in-ing]."
-         "When parents go on a vacation, they spend their  time eating three [plural-noun] a day, and fathers play golf," 
-         "and mothers sit around [verb-ending-in-ing]. Last summer, my little brother fell in a/an [noun] "
-         "and got poison [plant] all over his [part-of-body]. My family is going to go to (the) [place], "
-         "and I will practice [verb-ending-in-ing]."
-         " Parents need vacation more than kids because parents are always very [adjective] and "
-         "because they have to work [number] hours every day all year making enough [plural-noun] to pay"
-         "for the vacation.")  
-    output= x.read(t)  
-    with mock.patch("builtins.input", side_effect=["Nice", "Angry", "Car", "House", "Shoes", "Monopoly", 
-                                                   "Laptops", "Running", "Fishing", "Televisions", "Cooking", 
-                                                   "Picture", "Rose", "Ear", "Hawaii", "Shooting", "Fun", 
-                                                   "11", "Socks"]):
-        assert x.user_answers(output) == ["Nice", "Angry", "Car", "House", "Shoes", "Monopoly", 
-                                        "Laptops", "Running", "Fishing", "Televisions", "Cooking", 
-                                        "Picture", "Rose", "Ear", "Hawaii", "Shooting", "Fun", 
-                                        "11", "Socks"]
+    """ The purpose of this method is to test the user_answers method.
+    
+    Side Effects:
+    y(Template): Instance of the Template class that will be used to test the user_answers method.
+    test(str): String that will serve as an example for the read method to use.
+    output(list): List that will read the test string and provide options for the user.
+    
+    """
+    y = Template("madlibstemplate.txt")
+    test = "[adjective] [noun]"
+    output = y.read(test)
+    with mock.patch("builtins.input", side_effect=["Nice", "Car"]):
+        assert y.user_answers(output) == ["Nice", "Car"]
+        
         
