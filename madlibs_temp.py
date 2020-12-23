@@ -1,19 +1,28 @@
-#Sources used to get stories for templates: 
-# https://www.madlibs.com/wp-content/uploads/2016/04/VacationFun_ML_2009_pg15.pdf
-# https://irp-cdn.multiscreensite.com/ec2b0ab8/files/uploaded/Mad%20Libs.pdf
                                             
 from argparse import ArgumentParser                                          
 import re
 import sys
 
 class Template:
-    """Generates the template
+    """
+    This class will formulate a madlib game story. The user will choose a genre from a template, and from their be given blanks to fill. 
+    
+    Attribute: 
+    self.story(string): stores the completed story with user input for the blanks
+    self.output(list): a list of all the words in brackets for the particular chosed genre from the user
+    self.genre(txt): takes the template as "file"
+    self.user_words(list): is the words that are selected from the user to rpelace the blanks that are stored in a list
+    self.user_input(str): The genre that is chosen by the user for the template 
+    
     """
     
     def __init__(self,file): #Chelsea
         """Initializes content and output words
         args: 
         file(str): name of the template file
+        
+        Side effects: 
+        Intialised variables that are described in class doc string
         """
         self.story = " "
         self.output = []
@@ -25,18 +34,13 @@ class Template:
     def genre(self, file): #Amanu
         """ Choose the genre of the story to be generated
         Args:
-        filename(txt) User chooses between different genres such as vacation, park, zoo, or arcade to be used
-        as a template. Currently just the vacation genre, but will update to have all the genres output. 
+        filename(txt): User chooses between different genres such as vacation, park, zoo, or arcade to be used
+        as a template.
+        
+        Side Effects: 
+        self.content = opens file to read
+        self.d (dict): Stores story from template that user chose. genre title is key and the story is the value
     
-        Side effects:
-        d(dict) = stores the different genres and stories in a dictionary.
-        Genre is the key, stories in the template are values. 
-        genre(key value in dict): stores genre title in dictionary as key value
-        story(value in dict): stores story as value
-        
-        Return: 
-        story(dict): return the vacation genre  story. 
-        
         """    
         open_file = open(file, "r")
         self.content = open_file.read()
@@ -47,6 +51,13 @@ class Template:
             self.d[y[0].lower()] = y[1]
          
     def user_choice(self): #Amanu
+        """ 
+        Side effects: 
+        self.user_input (str): asks for user input for genre based given the options of vacation, park, zoo, or aracde. 
+        
+        returnL 
+        self.d[user_input](dict): the story based upon the genre chosen
+        """
         self.user_input  = input("Choose a genre: vacation/park/zoo/arcade ")
         self.user_input.strip("\n")
         while self.user_input not in  ['vacation' ,'park' ,'zoo' ,'arcade']:
@@ -103,11 +114,11 @@ class Template:
             template(str): the story generated based on what genre the user has chosen 
             
         Side Effects:
-            brackets_sub becomes a string with words inside brackets replaced with "{}"
-            self.story gets updated to a string with "{}" replaced with words the user inputed in proper order
+            brackets_sub: becomes a string with words inside brackets replaced with "{}"
+            self.story (str):gets updated to a string with "{}" replaced with words the user inputed in proper order
         
         Returns:
-            self.story
+            self.story(str): the completed story with the blanks filled 
         """
         brackets_sub = re.sub(r"(\[[^\]]+\])", "{}", self.d[self.user_input])
         self.story = brackets_sub.format(*self.user_words)
@@ -134,6 +145,19 @@ def parse_args(argList):
 def main(file):
     """Generates the story based on what genre the user selects. Then prompts user to fill in word so a
     story is generated.
+    
+    Args: 
+    file(txt): Template of the file
+    
+    Side effects: 
+    temp = instance of the Template class with file as an arguement. The prompted with a print statement to pick genre. 
+    x = by temp.user_choice , user is suppoed to input the words for the blanks to complete the sotry 
+    blanks = stores the words in brackets  in a list
+    new_words = temp.user_answers(blanks) asks for users choice for words to be replaced in blanks
+    story = genereated story with the user_words inputted 
+    answer(str = through input statement asks if user wants to play again. Then story is printed.
+
+    
     """
     temp = Template(file)
     print("Welcome to the MadLibs game! Pick a genre to begin.\n")
