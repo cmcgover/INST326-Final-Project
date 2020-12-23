@@ -31,9 +31,9 @@ def test_read():
     
     
 def test_generator():
-    word = "[zoo]"
+    word = "[noun]"
     regex = re.compile(r"(\[[^\]]+\])")
-    assert regex.match(regex, word)
+    assert regex.match(word)
     
-def test_format():
+#def test_format():
     
