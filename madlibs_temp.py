@@ -100,9 +100,16 @@ class Template:
         Returns:
             user_words(list): Returns a list of the user's answers in the correct order 
         """
-        self.user_words = []
         for word in self.output:
-            user_response = input(f"Please enter a(n) {word}: ")
+            while word == "number":
+                try: 
+                    num = int(input("Please enter a number: "))
+                except ValueError:
+                    print("That is not a number")
+                    continue
+                break
+            plural = ("an") if word == ("adjective" or "adverb") else ("a")
+            user_response = input(f"Please enter {plural} {word}: ")
             self.user_words.append(user_response)
         return self.user_words
         
