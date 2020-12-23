@@ -23,4 +23,4 @@ A Mad Libs game
  
 # Using and interpretting the program
  After running the program in the command line, the game will start by prompting the user to choose a genre. 
- Then is to  input a genre from the given options.  If an invalid choice is inputted then it will give you the option to enter the correct input again. After that, based upon the blanks provided, fill in the proper words. Lastly, a completed story with the blanks filled in will be returned. The program then promtps the user to play again.
+ Then the user should input a genre from the given options.  If an invalid choice is inputted then it will give the user the option to enter the correct input again. After that, based upon the blanks provided, type in the words for each blank. Lastly, a completed story with the blanks filled will returned at the end. The program then prompts the user to play again.
