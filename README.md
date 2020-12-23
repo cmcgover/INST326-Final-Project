@@ -18,7 +18,8 @@ A Mad Libs game
 
 # How to run the program
 
- To run the game, in the command line type "python3 madlibs_temp.py madlibstemplate.txt"
-
+ To run the game, in the command line type "python3 madlibs_temp.py madlibstemplate.txt". 
+ 
 # Using and interpretting the program
- After running the program in the command line, the game will start by prompting the user to choose a genre. Then, the user is asked to fill in various different words and once this is complete the new story is generated and printed to the user. The program then promtps the user to play again.
+ After running the program in the command line, the game will start by prompting the user to choose a genre. 
+ Then is to  input a genre from the given options.  If an invalid choice is inputted then it will give you the option to enter the correct input again. After that, based upon the blanks provided, fill in the proper words. Lastly, a completed story with the blanks filled in will be returned. The program then promtps the user to play again.
