@@ -108,8 +108,8 @@ class Template:
                     print("That is not a number")
                     continue
                 break
-            plural = ("an") if word == ("adjective" or "adverb") else ("a")
-            user_response = input(f"Please enter {plural} {word}: ")
+            article = ("an") if word == ("adjective" or "adverb") else ("a")
+            user_response = input(f"Please enter {article} {word}: ")
             self.user_words.append(user_response)
         return self.user_words
         
