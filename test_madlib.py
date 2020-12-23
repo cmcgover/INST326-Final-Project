@@ -34,6 +34,7 @@ def test_generator():
     word = "[noun]"
     regex = re.compile(r"(\[[^\]]+\])")
     assert regex.match(word)
+  
     
 #def test_format():
     
