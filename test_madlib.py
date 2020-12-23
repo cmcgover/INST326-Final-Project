@@ -37,6 +37,7 @@ def test_generator():
     word = "[noun]"
     regex = re.compile(r"(\[[^\]]+\])")
     assert regex.match(word)
+  
     
 def test_user_answers():
     t = ("A vacation is when you take a trip to some [adjective] place with your [adjective] family."
