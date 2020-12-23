@@ -1,6 +1,3 @@
-#Sources used to get stories for templates: 
-# https://www.madlibs.com/wp-content/uploads/2016/04/VacationFun_ML_2009_pg15.pdf
-# https://irp-cdn.multiscreensite.com/ec2b0ab8/files/uploaded/Mad%20Libs.pdf
                                             
 from argparse import ArgumentParser                                          
 import re
