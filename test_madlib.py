@@ -8,6 +8,12 @@ from unittest import mock
 x = Template("check.txt")
 
 def test_genre():
+    """
+    The purpose of this method is to  test the genre method 
+    Side effects: 
+    x.genre(txt) : file of the mock template that will be tested 
+    
+    """
     x.genre("check.txt")
     assert x.content
     assert list(x.d.keys()) == ['story1','story2','story3','story4'] 
@@ -16,6 +22,15 @@ def test_genre():
     
     
 def test_read():
+    """ 
+    The purpose of this method is test the read method. It will test to see if the method can read and 
+    and aggregate correct list of words in brackets. 
+    
+    Side Effects: 
+    t(str): a portion of the template that is stored as a string 
+    output: uses x.read(t) to  checks  if it reads "t"
+    
+    """
     t = ("A vacation is when you take a trip to some [adjective] place with your [adjective] family."
          "Usually you go to some place that is near a/an [noun] or up on a/an [noun]. A good vacation place isone where you can ride [plural-noun] or play [game] or go hunting for [plural-noun] ."
          " I like to spend my time [verb-ending-in-ing] or [verb-ending-in-ing]."
@@ -34,6 +49,14 @@ def test_read():
     
     
 def test_generator():
+    """ 
+    The purpose of this method is to check the generator method by 
+    verifying if the regex successfully matches the words in brackets. 
+    
+    Side Effects:
+    word(str): word in brackets
+    
+    """ 
     word = "[noun]"
     regex = re.compile(r"(\[[^\]]+\])")
     assert regex.match(word)
