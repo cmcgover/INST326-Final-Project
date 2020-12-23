@@ -1,4 +1,3 @@
-                                            
 from argparse import ArgumentParser                                          
 import re
 import sys
@@ -15,7 +14,6 @@ class Template:
         self.user_input(str): The genre that is chosen by the user for the template 
     
     """
-    
     def __init__(self,file): #Chelsea
         """Initializes content and output words
         Args: 
@@ -29,8 +27,7 @@ class Template:
         self.genre(file)
         self.user_words = []
         self.user_input= ""
-        
-        
+            
     def genre(self, file): #Amanu
         """ Choose the genre of the story to be generated
         Args:
@@ -49,7 +46,7 @@ class Template:
         for template in x: 
             y = template.strip().split(":")
             self.d[y[0].lower()] = y[1]
-         
+                 
     def user_choice(self): #Amanu
         """ 
         Side effects: 
@@ -64,8 +61,7 @@ class Template:
             self.user_input = input("Choose a genre: vacation/park/zoo/arcade ")
         else:    
             return self.d[self.user_input]
-
-                
+            
     def read(self,template): #Chelsea
         """ Finds "missing words" in the chosen story and returns a list of what needs to be filled in by the user.
         Args:
@@ -130,6 +126,7 @@ class Template:
         brackets_sub = re.sub(r"(\[[^\]]+\])", "{}", self.d[self.user_input])
         self.story = brackets_sub.format(*self.user_words)
         return self.story
+
     
 def parse_args(argList):
     """Parses command-line arguments.
@@ -147,7 +144,6 @@ def parse_args(argList):
     parser = ArgumentParser()
     parser.add_argument("filename", help ="path to txt file called madlibstemplate.txt")
     return parser.parse_args(argList)
-
 
 def main(file):
     """Generates the story based on what genre the user selects. Then prompts user to fill in word so a
